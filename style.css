@@ -23,18 +23,16 @@ body {
   justify-content: center;
   align-items: center;
   font: 16px/1.6 "SF-Pro";
-  background: url(img/Background.jpg) no-repeat center / cover;
+  background: url(Background.jpg) no-repeat center / cover;
   position: relative;
 }
 
 button {
   font-family: SF-Pro;
   cursor: pointer;
-
 }
 
 .songs {
-
   display: inline-flex;
   padding: 16px 24px;
   flex-direction: column;
@@ -59,7 +57,7 @@ button {
 
 .song-list {
   display: flex;
-  width: 1214px;
+  width: 1014px;
   height: 532px;
   align-items: flex-start;
   align-content: flex-start;
@@ -85,15 +83,7 @@ button {
 
 .song:hover {
   border: 1px solid #ffffff66;
-  background: var(
-    --Controls-Hover,
-    linear-gradient(
-      0deg,
-      rgba(94, 94, 94, 0.06) 0%,
-      rgba(94, 94, 94, 0.06) 100%
-    ),
-    rgba(255, 255, 255, 0.04)
-  );
+  background:     #ffffff11;
   & .img button {
     display: block;
   }
@@ -126,38 +116,42 @@ button {
   }
 }
 
-& .img {
+.img {
   width: 176px;
   height: 176px;
-  background: url(img/Album/Album.jpg) no-repeat center / cover;
-  border-radius: 8px;
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  padding: 8px;
+  position: relative;
+}
 
-  & button {
-    display: flex;
-    width: 44px;
-    height: 44px;
-    padding: 0px 13px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 100px;
-    background: var(--green);
-    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    color: var(--black);
-    text-overflow: ellipsis;
-    font-family: "SF-Pro";
-    font-size: 19px;
-    font-style: normal;
-    font-weight: 590;
-    border: none;
-    line-height: 24px;
-    display: none;
-    cursor: pointer;
-  }
+img {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  position: relative;
+}
+.song .img button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  display: flex;
+  width: 44px;
+  height: 44px;
+  padding: 0px 13px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: var(--green);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  color: var(--black);
+  text-overflow: ellipsis;
+  font-family: "SF-Pro";
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 590;
+  border: none;
+  line-height: 24px;
+  z-index: 9;
+  cursor: pointer;
 }
 
 /* Tool Bar */
@@ -176,42 +170,42 @@ button {
   backdrop-filter: blur(50px);
 }
 .music {
-    display: flex;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    border-radius: 12px;
-background: #0000004d;
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: #0000004d;
 }
-.music .img {
-    width: 48px;
-    height: 48px;
-    flex-shrink: 0;
-  background: url(img/Album/Album.jpg) no-repeat center / cover;
+.music img {
+  width: 48px;
+  height: 48px;
   border-radius: 8px;
 }
 .music .details {
-    padding: 0;
-    justify-content: center;
+  padding: 0;
+  justify-content: center;
 }
 
 .player {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 8px;
-    width: 368px;
-}
-
-
-.controls {
-
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 28PX;
+  flex-direction: column;
+  gap: 8px;
+  width: 368px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
 }
 
 .controls button {
@@ -220,8 +214,8 @@ background: #0000004d;
   cursor: pointer;
   font-family: SF-Pro;
   font-size: 16px;
-  color:   #ffffff66;
-  &:nth-child(3) {
+  color: #ffffff66;
+  &:nth-child(2) {
     width: 32px;
     height: 32px;
     padding: 0px 8px;
@@ -229,7 +223,7 @@ background: #0000004d;
     background: var(--white);
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    color: var(--black);
+    color: var(--black) !important;
     text-overflow: ellipsis;
     font-family: "SF-Pro";
     font-size: 14px;
@@ -240,70 +234,108 @@ background: #0000004d;
     cursor: pointer;
   }
 }
+.controls button:hover {
+  color: var(--white);
+}
 
 .timeline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
 }
 
 .startTime {
-    color: #ffffff66;
-    font-size: 12px;
-    font-weight: 510;
-    line-height: 16px;
+  color: #ffffff66;
+  font-size: 12px;
+  font-weight: 510;
+  line-height: 16px;
 }
 
 .progressBar {
-    width: 100%;
-    height: 4px;
-    background: #ffffff66;
-    border-radius: 100px;
+  width: 100%;
+  height: 4px;
+  background: #ffffff66;
+  border-radius: 100px;
+
 }
 
 .runner {
-    width: calc(100% - 10.05%);
-    height: 4px;
-    background: var(--white);
-    border-radius: 100px;
+  width: 10%;
+  height: 4px;
+  background: var(--white);
+  border-radius: 100px;
+  cursor: pointer;
 }
 
 .endTime {
-    color: var(--white);
-    font-size: 12px;
-    font-weight: 510;
-    line-height: 16px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 510;
+  line-height: 16px;
 }
 
-.volume{
-    display: flex;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 148px;
+.volume {
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 148px;
 }
 .volume button {
-
-    background: none;
-    border: none;
-    font-size: 16px;
-    color: #ffffff66;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #ffffff66;
 }
 .volumeBar {
-    width: 100%;
-    height: 2px;
-    background: #ffffff66;
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  height: 2px;
+  background: #ffffff66;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+ 
 }
 .volumeRunner {
-    width: 40px;
-    height:4px;
-    background: var(--white);
-    border-radius: 100px;
+  width: 40px;
+  height: 4px;
+  background: var(--white);
+  border-radius: 100px;
 }
 
+/* Volume Bar and Timeline Runner */
+.volumeBar, .progressBar {
+    position: relative;
+  }
+  
+  .volumeRunner, .runner {
+    position: relative;
+    height: 4px;
+    background: var(--white);
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  
+  .volumeRunner::after, .runner::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0; /* Positioned at the end of the line */
+    transform: translate(50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--white);
+    transition: width 0.3s, height 0.3s; /* Smooth transition */
+  }
+  
+  .volumeRunner:hover::after, .runner:hover::after,
+  .volumeRunner.dragging::after, .runner.dragging::after {
+    width: 12px; /* Ball size */
+    height: 12px; /* Ball size */
+  }
+  
+  /* Update CSS classes for better drag indication */
